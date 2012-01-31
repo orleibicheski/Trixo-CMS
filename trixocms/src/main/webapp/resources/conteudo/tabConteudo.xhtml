@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<composite:interface name="tabConteudo"
+		displayName="Tabela para conteúdos">
+		<composite:attribute name="tableId" requeired="true" />
+
+		<composite:attribute name="entityBean" requeired="true" />
+		<composite:attribute name="queryBean" requeired="true" />
+		<composite:attribute name="categoriaId" requeired="true" />
+		<composite:attribute name="categoriaId" requeired="true" />
+	</composite:interface>
+
+	<composite:implementation>
+		
+		<p:toolbar>
+			<p:toolbarGroup align="left" >
+				<p:commandButton type="push"
+					action="#{cc.attrs.entityBean.newEntity}" value="Criar"
+					ajax="false">
+					<f:setPropertyActionListener
+						target="#{cc.attrs.entityBean.categoriaId}"
+						value="#{cc.attrs.categoriaId}" />
+				</p:commandButton>
+			</p:toolbarGroup>
+			<p:toolbarGroup align="right">
+				<p:commandButton type="push" action="#{cc.attrs.entityBean.view}"
+					value="Visualizar" ajax="false" />
+				<p:commandButton type="push" action="#{cc.attrs.entityBean.remove}"
+					value="Remover" ajax="false" />
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		<p:spacer height="5" />
+
+		<p:dataTable emptyMessage="Não há Conteúdo cadastrado na Página"
+			id="#{cc.attrs.tableId}" dynamic="true" paginator="true" 
+			value="#{cc.attrs.queryBean.result(cc.attrs.categoriaId)}" rows="10" var="ca"
+			selectionMode="single" selection="#{cc.attrs.entityBean.selecionada}" 
+			rowKey="#{ca.id}">
+			<p:column>
+				<f:facet name="header">Tipo</f:facet>
+				<h:outputText value="#{ca.map['categoriaTipoDescricao']}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Descrição</f:facet>
+				<h:outputText value="#{ca.map['conteudoDescricao']}" />
+			</p:column>
+		</p:dataTable>
+
+	</composite:implementation>
+
+</ui:composition>

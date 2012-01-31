@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Template"
+			rendered="#{not templateEntity.managed}" />
+		<h:outputText value="Edição de Template"
+			rendered="#{templateEntity.managed}" />
+	</ui:define>
+
+	<ui:define name="body">
+	
+		<p:panel header="Cadastro de Template">
+
+			<h:panelGrid columns="2">
+				<h:outputLabel from="inputNome" value="Nome:" />
+				<p:inputText id="inputNome" value="#{templateEntity.instance.nome}" />
+				<h:outputLabel from="inputTemplate" value="Template:" />
+				<p:inputTextarea id="inputTemplate"
+					value="#{templateEntity.instance.valor}"
+					style="width:300px;height:100px;" effectDuration="400" />
+				<h:outputLabel from="picklistCategorias" value="Categorias:" />
+				<p:pickList id="picklistCategorias" iconOnly="true"
+					value="#{templateEntity.picklistCategorias}" var="categoria"
+					itemValue="#{categoria}" itemLabel="#{categoria.variavelTemplate}" 
+					converter="categoriaConverter">
+					<f:facet name="sourceCaption">Disponíveis</f:facet>
+					<f:facet name="targetCaption">Selecionadas</f:facet>
+				</p:pickList>
+
+			</h:panelGrid>
+
+			<f:facet name="footer">
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton value="Salvar" action="#{templateEntity.persist}"
+							ajax="false" rendered="#{not templateEntity.managed}" />
+						<p:commandButton value="Editar" action="#{templateEntity.update}"
+							ajax="false" rendered="#{templateEntity.managed}" />
+						<p:commandButton value="Voltar" action="painelSite" ajax="false"
+							immediate="true" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</f:facet>
+
+		</p:panel>
+
+	</ui:define>
+</ui:composition>

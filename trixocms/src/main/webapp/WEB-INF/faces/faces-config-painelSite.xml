@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<navigation-rule>
+		<from-view-id>/painelSite.xhtml</from-view-id>
+		<!-- Site -->
+		<navigation-case>
+			<from-action>#{siteEntity.view}</from-action>
+			<from-outcome>view</from-outcome>
+			<to-view-id>/formularioSite.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Categoria -->
+		<navigation-case>
+			<from-action>#{categoriaEntity.newEntity}</from-action>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/formularioCategoria.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{categoriaEntity.view}</from-action>
+			<from-outcome>view</from-outcome>
+			<to-view-id>/formularioCategoria.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{categoriaEntity.remove}</from-action>
+			<from-outcome>removed</from-outcome>
+			<to-view-id>/painelSite.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Template -->
+		<navigation-case>
+			<from-action>#{templateEntity.newEntity}</from-action>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/formularioTemplate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{templateEntity.view}</from-action>
+			<from-outcome>view</from-outcome>
+			<to-view-id>/formularioTemplate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{templateEntity.remove}</from-action>
+			<from-outcome>removed</from-outcome>
+			<to-view-id>/painelSite.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Pagina -->
+		<navigation-case>
+			<from-action>#{paginaEntity.newEntity}</from-action>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/formularioPagina.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{paginaEntity.view}</from-action>
+			<from-outcome>view</from-outcome>
+			<to-view-id>/formularioPagina.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{paginaEntity.remove}</from-action>
+			<from-outcome>removed</from-outcome>
+			<to-view-id>/painelSite.xhtml</to-view-id>
+		</navigation-case>
+		<!-- Conteudo -->
+		<navigation-case>
+			<from-action>#{paginaEntity.viewConteudo}</from-action>
+			<from-outcome>painel</from-outcome>
+			<to-view-id>/painelPagina.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>atualizacoesSite</from-outcome>
+			<to-view-id>/painelPublicacao.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

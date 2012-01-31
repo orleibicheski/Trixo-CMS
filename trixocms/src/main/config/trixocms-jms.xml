@@ -1,0 +1,13 @@
+<configuration xmlns="urn:hornetq"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:hornetq /schema/hornetq-jms.xsd">
+
+   <queue name="PublicacoesQueue">
+      <entry name="/queue/publicacoes"/>
+   </queue>
+   
+   <queue name="AgendamentosQueue">
+      <entry name="/queue/agendamentos"/>
+   </queue>
+
+</configuration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="painelUsuario::#painelUsuario.xhtml"
+    NAME="output" PATH="/painelUsuario.xhtml"
+    TARGET="rules:#painelUsuario.xhtml" TITLE="painelUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="painelSite::#painelSite.xhtml"
+    NAME="output1" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml" TITLE="painelSite" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="painelPagina::#painelPagina.xhtml"
+    NAME="output2" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml" TITLE="painelPagina" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#painelUsuario.xhtml"
+  PATH="/painelUsuario.xhtml" SHAPE="272,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#painelPagina.xhtml"
+  PATH="/painelPagina.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#painelSite.xhtml" PATH="/painelSite.xhtml"
+  SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

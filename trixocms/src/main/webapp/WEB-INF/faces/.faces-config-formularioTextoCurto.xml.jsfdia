@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelPagina.xhtml"
+  PATH="/painelPagina.xhtml" SHAPE="1040,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioTextoCurto.xhtml"
+  PATH="/formularioTextoCurto.xhtml" SHAPE="768,497,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioTextoCurto.xhtml:0" NAME="item"
+   PATH="/formularioTextoCurto.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{textoCurtoEntity.persist}:#painelPagina.xhtml"
+    NAME="output" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoCurtoEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{textoCurtoEntity.update}:#painelPagina.xhtml"
+    NAME="output1" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoCurtoEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="voltar:#{textoCurtoEntity.voltar()}:#painelPagina.xhtml"
+    NAME="output2" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoCurtoEntity.voltar()}:voltar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="painelUsuario::#painelUsuario.xhtml"
+    NAME="output" PATH="/painelUsuario.xhtml"
+    TARGET="rules:#painelUsuario.xhtml" TITLE="painelUsuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="painelSite::#painelSite.xhtml"
+    NAME="output1" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml" TITLE="painelSite" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#painelUsuario.xhtml"
+  PATH="/painelUsuario.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelUsuario.xhtml:0" NAME="item"
+   PATH="/painelUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{siteEntity.newEntity}:#formularioSite.xhtml" NAME="output"
+    PATH="/formularioSite.xhtml" TARGET="rules:#formularioSite.xhtml"
+    TITLE="#{siteEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#painelSite.xhtml" PATH="/painelSite.xhtml"
+  SHAPE="752,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelSite.xhtml:0" NAME="item"
+   PATH="/painelSite.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{siteEntity.view}:#formularioSite.xhtml" NAME="output"
+    PATH="/formularioSite.xhtml" TARGET="rules:#formularioSite.xhtml"
+    TITLE="#{siteEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{categoriaEntity.newEntity}:#formularioCategoria.xhtml"
+    NAME="output1" PATH="/formularioCategoria.xhtml"
+    TARGET="rules:#formularioCategoria.xhtml"
+    TITLE="#{categoriaEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{categoriaEntity.view}:#formularioCategoria.xhtml"
+    NAME="output2" PATH="/formularioCategoria.xhtml"
+    TARGET="rules:#formularioCategoria.xhtml"
+    TITLE="#{categoriaEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{categoriaEntity.remove}:#painelSite.xhtml"
+    NAME="output3" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{categoriaEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{templateEntity.newEntity}:#formularioTemplate.xhtml"
+    NAME="output4" PATH="/formularioTemplate.xhtml"
+    TARGET="rules:#formularioTemplate.xhtml"
+    TITLE="#{templateEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{templateEntity.view}:#formularioTemplate.xhtml"
+    NAME="output5" PATH="/formularioTemplate.xhtml"
+    TARGET="rules:#formularioTemplate.xhtml"
+    TITLE="#{templateEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{templateEntity.remove}:#painelSite.xhtml"
+    NAME="output6" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{templateEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{paginaEntity.newEntity}:#formularioPagina.xhtml"
+    NAME="output7" PATH="/formularioPagina.xhtml"
+    TARGET="rules:#formularioPagina.xhtml"
+    TITLE="#{paginaEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{paginaEntity.view}:#formularioPagina.xhtml"
+    NAME="output8" PATH="/formularioPagina.xhtml"
+    TARGET="rules:#formularioPagina.xhtml"
+    TITLE="#{paginaEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{paginaEntity.remove}:#painelSite.xhtml" NAME="output9"
+    PATH="/painelSite.xhtml" TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID=":#{selecionarPagina.selecionar(paginaEntity.id)}:#painelPagina.xhtml"
+    NAME="output10" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{selecionarPagina.selecionar(paginaEntity.id)}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="painel:#{paginaEntity.viewConteudo}:#painelPagina.xhtml"
+    NAME="output11" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{paginaEntity.viewConteudo}:painel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="atualizacoesSite::#painelPublicacao.xhtml"
+    NAME="output12" PATH="/painelPublicacao.xhtml"
+    TARGET="rules:#painelPublicacao.xhtml" TITLE="atualizacoesSite" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioSite.xhtml"
+  PATH="/formularioSite.xhtml" SHAPE="480,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioSite.xhtml:0" NAME="item"
+   PATH="/formularioSite.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{siteEntity.persist}:#painelUsuario.xhtml"
+    NAME="output" PATH="/painelUsuario.xhtml"
+    TARGET="rules:#painelUsuario.xhtml"
+    TITLE="#{siteEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{siteEntity.update}:#painelSite.xhtml" NAME="output1"
+    PATH="/painelSite.xhtml" TARGET="rules:#painelSite.xhtml"
+    TITLE="#{siteEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioCategoria.xhtml"
+  PATH="/formularioCategoria.xhtml" SHAPE="480,449,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioCategoria.xhtml:0" NAME="item"
+   PATH="/formularioCategoria.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{categoriaEntity.persist}:#painelSite.xhtml"
+    NAME="output" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{categoriaEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{categoriaEntity.update}:#painelSite.xhtml"
+    NAME="output1" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{categoriaEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioTemplate.xhtml"
+  PATH="/formularioTemplate.xhtml" SHAPE="480,593,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioTemplate.xhtml:0" NAME="item"
+   PATH="/formularioTemplate.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{templateEntity.persist}:#painelSite.xhtml"
+    NAME="output" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{templateEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{templateEntity.update}:#painelSite.xhtml"
+    NAME="output1" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{templateEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioPagina.xhtml"
+  PATH="/formularioPagina.xhtml" SHAPE="1024,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioPagina.xhtml:0" NAME="item"
+   PATH="/formularioPagina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{paginaEntity.persist}:#painelSite.xhtml"
+    NAME="output" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{paginaEntity.update}:#painelSite.xhtml" NAME="output1"
+    PATH="/painelSite.xhtml" TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#painelPagina.xhtml"
+  PATH="/painelPagina.xhtml" SHAPE="1024,449,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelPagina.xhtml:0" NAME="item"
+   PATH="/painelPagina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{textoCurtoEntity.newEntity}:#formularioTextoCurto.xhtml"
+    NAME="output" PATH="/formularioTextoCurto.xhtml"
+    TARGET="rules:#formularioTextoCurto.xhtml"
+    TITLE="#{textoCurtoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{textoLongoEntity.newEntity}:#formularioTextoLongo.xhtml"
+    NAME="output1" PATH="/formularioTextoLongo.xhtml"
+    TARGET="rules:#formularioTextoLongo.xhtml"
+    TITLE="#{textoLongoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{linkInternoEntity.newEntity}:#formularioLinkInterno.xhtml"
+    NAME="output2" PATH="/formularioLinkInterno.xhtml"
+    TARGET="rules:#formularioLinkInterno.xhtml"
+    TITLE="#{linkInternoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{linkExternoEntity.newEntity}:#formularioLinkExterno.xhtml"
+    NAME="output3" PATH="/formularioLinkExterno.xhtml"
+    TARGET="rules:#formularioLinkExterno.xhtml"
+    TITLE="#{linkExternoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioTextoCurto.xhtml"
+  PATH="/formularioTextoCurto.xhtml" SHAPE="752,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioTextoCurto.xhtml:0" NAME="item"
+   PATH="/formularioTextoCurto.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{textoCurtoEntity.persist}:#painelPagina.xhtml"
+    NAME="output" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoCurtoEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{textoCurtoEntity.update}:#painelPagina.xhtml"
+    NAME="output1" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoCurtoEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioTextoLongo.xhtml"
+  PATH="/formularioTextoLongo.xhtml" SHAPE="1248,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioTextoLongo.xhtml:0" NAME="item"
+   PATH="/formularioTextoLongo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{textoLongoEntity.persist}:#painelPagina.xhtml"
+    NAME="output" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoLongoEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{textoLongoEntity.update}:#painelPagina.xhtml"
+    NAME="output1" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{textoLongoEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#painelPublicacao.xhtml"
+  PATH="/painelPublicacao.xhtml" SHAPE="1024,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioLinkInterno.xhtml"
+  PATH="/formularioLinkInterno.xhtml" SHAPE="752,1105,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioLinkInterno.xhtml:0" NAME="item"
+   PATH="/formularioLinkInterno.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{linkInternoEntity.persist}:#painelPagina.xhtml"
+    NAME="output" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{linkInternoEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{linkInternoEntity.update}:#painelPagina.xhtml"
+    NAME="output1" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{linkInternoEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioLinkExterno.xhtml"
+  PATH="/formularioLinkExterno.xhtml" SHAPE="752,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioLinkExterno.xhtml:0" NAME="item"
+   PATH="/formularioLinkExterno.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{linkExternoEntity.persist}:#painelPagina.xhtml"
+    NAME="output" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{linkExternoEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{linkExternoEntity.update}:#painelPagina.xhtml"
+    NAME="output1" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{linkExternoEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,139 @@
+Requisitos Funcionais
+
+-Cadastro de conta de usuário: Não usuários acessam livremente uma tela para cadastrar uma conta no serviço.
+-Login de controle de acesso: Usuários do serviço acessam o painel de sua conta através de um login e senha.
+-Controle de Acesso: Deverão existir 3 tipos permissões para um site: Proprietário (Permissão total), Designer (Funcções administrativas de templates e categorias) e Editor (Funções de conteúdo e publicação)
+-Painel de controle da conta: Usuários logados acessam um painel de controle de sua conta.
+-Meus sites: Usuários visualizam os sites que possuem relacionamento com ele.
+-Painel de controle do site: Usuários com alguma permissão de acesso ao site, visualizam as informações relevantes ao seu perfil.
+-Informações do site: 
+-Templates do site: 
+-Categorias do site:
+-Páginas do site: 
+-Conteúdos do site: 
+-Permissões do site: Proprietários podem definir contas que terão acesso administrador e/ou editor para um site.
+-Publicações: Editores visualizam as publicações antigas, correntes.
+-Agendamentos: Editores visualizam os agendamentos futuros
+-Publicar site: 
+
+Usuário clica no publicar
+
+1 São apresentados todos as páginas com status AGUARDANDO_PUBLICACAO
+2 Usuário seleciona quais devem ser publicadas
+3 Cria-se um objeto tipo Publicação 
+4 Relacionado a publicação com todas as páginas selecionadas
+5 Atualiza todos os conteúdos 'legiveis para publicação'* e com status AGUARDANDO_PUBLICACAO para EM_PUBLICACAO e páginas selecionadas para EM_PUBLICACAO
+6 Registrada uma mensagem contendo o Identificador da publicação na fila publicacoes
+7 Mensagem é consumida e repassa para o Publicar o identificador da Publicação
+8 Testa a conexão com o host do site e publica um arquivo contendo Informaçãoes da publicação
+9 Para cada página relacionada a Publicação, pesquisar as categorias relacionadas ao seu template
+10 Para cada categoria relacionada, pesquisa-se os conteúdos com status EM_PUBLICACAO e PUBLICADO
+11 Para cada página e utilizando as categoris e conteúdos pesquisados, gera o código das páginas e publica-os no host do site
+12 Publica os conteúdos tipo Arquivo com status EM_PUBLICACAO
+13 Atualiza todos os conteúdos para status PUBLICADO
+14 Atualiza todas as páginas para PUBLICADA
+15 Se a publicação possuí conteúdos associados, para os EM_DESPUBLICACAO atualizar para DESPUBLICADO
+
+* Legiveis para publicação: Conteúdos que tem os atributos publicarDe e publicarAté dentro do período atual.
+
+Sistema não consegue estabelecer conexão com servidor
+
+1 A partir do passo 8 do 'Usuário clica no publicar'
+2 Ocorre um erro ao estabelecer a conexão com o host do site ou com a publicação das Informações da Publicação
+3 Atualiza a plublicação com o status de ERRO_PUBLICACAO
+4 Adiciona no atributo erro a causa do erro
+5 Para cada página relacionada a Publicação, pesquisar as categorias relacioandas ao seu template
+6 Para cada categoria relacionada, pesquisa-se os conteúdos com status EM_PUBLICACAO
+7 Atualizar cada um desses conteúdos para AGUARDANDO_PUBLICACAO
+
+Sistema não consegue gerar arquivos estaticos
+
+1 A partir do passo 10 do 'Usuário clica no publicar'
+2 Ocorre um erro ao gerar o arquivo estático da página
+3 Atualiza a plublicação com o status de ERRO_GERACAO
+4 Adiciona no atributo erro a causa do erro
+5 Para cada página relacionada a Publicação, pesquisar as categorias relacioandas ao seu template
+6 Para cada categoria relacionada, pesquisa-se os conteúdos com status EM_PUBLICACAO
+7 Atualizar cada um desses conteúdos para AGUARDANDO_PUBLICACAO
+			   
+Usuário agenda um conteúdo determinado dia
+
+1 Ao agendar um conteúdo para ser publicado no dia X
+2 Pesquisa se existe uma Publicação Agendada para o dia X
+3 Caso exita essa publicação associa o conteúdo a mesma e pular para o passo 6
+4 Caso não exista, cria-se a Publicação Agendada para o dia X e relaciona-se o conteúdo
+5 Registra uma mensagem contendo o Identificador da Publicação Agendada na fila publicacoesAgendadas com data para espirar no dia X as 00:00:00
+6 Mensagem é consumida no dia X as 00:00:00
+7 Para cada conteúdo relacionado a Publicação Agendada
+8 Atualiza o status dos conteúdos legiveis para publicação para EM_PUBLICACAO
+9 Atualiza o status dos conteúdos não legiveis para publicação para EM_DESPUBLICACAO
+10 Relaciona as páginas associadas aos conteúdos relacioandos a Publicação Agendada
+11 Continua a partir do passo 6 do 'Usuário clica no publicar' 
+
+Usuário agenda uma página determinado dia
+
+1 Ao agendar uma página para ser publicado no dia X
+2 Pesquisa se existe uma Publicação Agendada para o dia X
+3 Caso exita essa publicação associa o conteúdo a mesma e pular para o passo 6
+4 Caso não exista, cria-se a Publicação Agendada para o dia X e relaciona-se o conteúdo
+5 Registra uma mensagem contendo o Identificador da Publicação Agendada na fila publicacoesAgendadas com data para espirar no dia X as 00:00:00
+6 Mensagem é consumida no dia X as 00:00:00
+7 Para cada página relacionado a Publicação Agendada
+8 Atualiza o status das páginas para EM_PUBLICACAO
+9 Continua a partir do passo 6 do 'Usuário clica no publicar' 
+			   
+Criar um conteúdo: existem 3 formas de se criar um conteúdo, conteúdo avançado, conteúdo rápido e conteúdo
+
+Conteúdo rápido
+
+1 Seleciona uma página para o conteúdo
+2 Apresenta as categorias relacionadas com o template do site
+3 Seleciona uma categoria que ele vai pertencer
+4 Apresenta os campos do tipo de conteúdo associado a Categoria escolhida
+
+Controles para os status de acordo com funcionalidades
+
+Página
+
+Criar uma página: Altera status página para AGUARDANDO_PUBLICACAO
+Altera uma página: Altera status página para AGUARDANDO_PUBLICACAO
+
+Template
+
+Alterar um template: Altera status de cada página relacionada para AGUARDANDO_PUBLICACAO
+
+Conteúdo
+
+Cria um conteúdo: Altera o conteúdo para AGUARDANDO_PUBLICACAO e as páginas para AGUARDANDO_PUBLICACAO
+Altera um conteúdo: Altera o conteúdo para AGUARDANDO_PUBLICACAO e as páginas para AGUARDANDO_PUBLICACAO
+Associa um conteúdo a pagina: Altera a página para AGUARDANDO_PUBLICACAO
+Despublicar: 
+Remover um conteúdo: 
+
+Onde podem ocorrer problemas na publicação:
+
+Conectar-se no host
+Loga-se no host
+Criar a pasta do site e/ou .publicacoes
+Criar a pasta da publicação
+Merge template da página
+Enviar html página
+Enviar arquivos(Downloads e Imagens)
+
+Cenário Problemáticos:
+
+1) 
+
+
+
+nextval('hibernate_sequence') 
+ 
+ 2011-07-06 07:45:48.371    
+ 
+ INSERT INTO "public"."textocurto" ("id", "alteracao", "cadastro", "versao", "decricao", "legivelate", "legivelde", "situacao", "site_id") VALUES ('nextval(''hibernate_sequence'')', NULL, '2011-07-06 07:45:48.371', '1', 'teste texto curto 1', '2011-07-05 07:45:48.371', '2012-07-06 07:45:48.371', 'CRIADO', '1')
+
+Melhorias:
+
+1) Organizar a barra superior com informações de site/pagina/oque esta sendo feito
+2) Organizar o cadastro de conteudo de página em abas ao invés de menubuton
+3) Ao cadastrar um template procurar por categorias internamente e associar automaticamente

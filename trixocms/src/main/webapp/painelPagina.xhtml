@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ct="http://java.sun.com/jsf/composite/conteudo"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="title">Cadastro de Conteúdo</ui:define>
+
+	<ui:define name="navegacao">
+		<p:menuitem value="#{siteSelecionado.nome}"
+			onclick="_dialogSite.show()" />
+		<p:menuitem value="#{paginaSelecionada.nome}" />
+	</ui:define>
+
+	<ui:define name="menuEsquerdo">
+		<p:commandButton value="Voltar" action="painelSite" ajax="false"
+			immediate="true" />
+	</ui:define>
+
+	<ui:define name="menuDireito">
+	</ui:define>
+
+	<ui:define name="body">
+		<p:panel header="Cadastro de Conteúdo">
+
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Página: " />
+				<h:outputText value="#{paginaSelecionada.nome}" />
+			</h:panelGrid>
+
+			<p:tabView var="categoria" dynamic="true" cache="false"
+				value="#{montarCategoriaPagina.categorias}"
+				tabChangeListener="#{gravarEstadoPainelPagina.tabChangeListener}"
+				activeIndex="#{gravarEstadoPainelPagina.tabIndexSelecionado}">
+
+				<p:tab title="#{categoria['descricao']}">
+
+					<h:outputLabel value="Tipo de Conteúdo:" />
+					<h:outputText value="#{categoria['tipo']}" />
+					
+					<p:spacer height="15"/>
+					
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Download'}">
+						<ct:tabConteudo tableId="tabConteudoDownload"
+							queryBean="#{downloadPaginaQuery}" entityBean="#{downloadEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Imagem'}">
+						<ct:tabConteudo tableId="tabConteudoImagem"
+							queryBean="#{imagemPaginaQuery}" entityBean="#{imagemEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Texto Longo'}">
+						<ct:tabConteudo tableId="tabConteudoTextoLongo"
+							queryBean="#{textoLongoPaginaQuery}"
+							entityBean="#{textoLongoEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Texto Curto'}">
+						<ct:tabConteudo tableId="tabConteudoTextoCurto"
+							queryBean="#{textoCurtoPaginaQuery}"
+							entityBean="#{textoCurtoEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Link Externo'}">
+						<ct:tabConteudo tableId="tabConteudoLinkExterno"
+							queryBean="#{linkExternoPaginaQuery}"
+							entityBean="#{linkExternoEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+					<p:outputPanel rendered="#{categoria['tipo'] eq 'Link Interno'}">
+						<ct:tabConteudo tableId="tabConteudoLinkInterno"
+							queryBean="#{linkInternoPaginaQuery}"
+							entityBean="#{linkInternoEntity}"
+							categoriaId="#{categoria['categoriaId']}" />
+					</p:outputPanel>
+
+				</p:tab>
+
+			</p:tabView>
+
+		</p:panel>
+	</ui:define>
+
+</ui:composition>

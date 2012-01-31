@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="title">Selecione Site</ui:define>
+
+	<ui:define name="menuEsquerdo">
+		<p:commandButton type="push" value="Meus Dados"/>	
+	</ui:define>
+	
+	<ui:define name="menuDireito">
+	</ui:define>
+
+	<ui:define name="body">
+	
+		<p:tabView tabChangeListener="#{gravarEstadoPainelUsuario.tabChangeListener}"
+			activeIndex="#{gravarEstadoPainelUsuario.tabIndexSelecionado}">
+
+			<p:tab title="Meus Sites">
+
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton action="#{siteEntity.newEntity}" value="Criar"	ajax="false" immediate="true"/>
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton value="Selecionar" action="#{selecionarSite.selecionar}" ajax="false" />
+					</p:toolbarGroup>
+				</p:toolbar>
+				
+				<p:spacer height="5" />
+
+				<p:dataTable emptyMessage="Não há Sites" value="#{sites}" var="_site" 
+					selectionMode="single" selection="#{selecionarSite.site}" rowKey="#{_site.id}">
+					<p:column>
+						<f:facet name="header">Nome</f:facet>
+						<p:commandLink value="#{_site.nome}" action="#{selecionarSite.selecionar}" ajax="false">
+							<f:setPropertyActionListener target="#{selecionarSite.site}" value="#{_site}" />
+						</p:commandLink>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Usuário</f:facet>
+						<h:outputText value="Proprietário" />
+					</p:column>
+				</p:dataTable>
+			</p:tab>
+		</p:tabView>			
+	</ui:define>
+	
+</ui:composition>

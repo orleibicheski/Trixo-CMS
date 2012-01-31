@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelUsuario.xhtml"
+  PATH="/painelUsuario.xhtml" SHAPE="272,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelUsuario.xhtml:0" NAME="item"
+   PATH="/painelUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{siteEntity.newEntity}:#formularioSite.xhtml" NAME="output"
+    PATH="/formularioSite.xhtml" TARGET="rules:#formularioSite.xhtml"
+    TITLE="#{siteEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioSite.xhtml"
+  PATH="/formularioSite.xhtml" SHAPE="496,17,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

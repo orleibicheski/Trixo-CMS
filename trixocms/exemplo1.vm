@@ -1,0 +1,8 @@
+$B_header
+$B_menu
+#foreach( $conteudo in $C_conteudos )
+
+	Conteudo Plotado: $conteudo
+
+#end
+$B_footer
