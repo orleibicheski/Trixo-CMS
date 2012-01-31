@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="title">Painel de controle do site</ui:define>
+
+	<ui:define name="navegacao">
+		<p:menuitem value="#{siteSelecionado.nome}"
+			onclick="_dialogSite.show()" />
+	</ui:define>
+
+	<ui:define name="menuEsquerdo">
+		<p:commandButton value="Voltar" ajax="false" immediate="true"
+			action="painelUsuario" />
+		<p:separator/>
+		<p:commandButton value="Atualizações" ajax="false" immediate="true"
+			action="atualizacoesSite" />
+		<p:commandButton value="Configurações" ajax="false" immediate="true" />
+		<p:commandButton value="Permissões" ajax="false" immediate="true" />
+		<p:commandButton value="Testes" ajax="false" immediate="true"
+			action="#{testes.testes()}" />
+		
+	</ui:define>
+
+	<ui:define name="menuDireito">
+	</ui:define>
+
+	<ui:define name="body">
+
+		<p:tabView
+			tabChangeListener="#{gravarEstadoPainelSite.tabChangeListener}"
+			activeIndex="#{gravarEstadoPainelSite.tabIndexSelecionado}">
+
+			<p:tab title="Páginas">
+
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton type="push" action="#{paginaEntity.newEntity}"
+							value="Criar" ajax="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton type="push"
+							action="#{selecionarPagina.selecionar(paginaEntity.id)}"
+							value="Gerenciar" ajax="false" />
+						<p:commandButton type="push" action="#{paginaEntity.view}"
+							value="Editar" ajax="false" />
+						<p:commandButton type="push" action="#{paginaEntity.remove}"
+							value="Remover" ajax="false" />
+					</p:toolbarGroup>
+				</p:toolbar>
+
+				<p:spacer height="5" />
+
+				<p:dataTable emptyMessage="Não há Páginas cadastradas"
+					id="tabPagina" dynamic="true" paginator="true"
+					value="#{paginaQuery.result}" rows="10" var="pagina"
+					selectionMode="single" selection="#{paginaEntity.selecionada}"
+					rowKey="#{pagina.id}">
+					<p:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{pagina.nome}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Template</f:facet>
+						<h:outputText value="#{pagina.template.nome}" />
+					</p:column>
+				</p:dataTable>
+
+			</p:tab>
+			<p:tab title="Categorias">
+
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton type="push" action="#{categoriaEntity.newEntity}"
+							value="Criar" ajax="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton type="push" action="#{categoriaEntity.view}"
+							value="Editar" ajax="false" />
+						<p:commandButton type="push" action="#{categoriaEntity.remove}"
+							value="Remover" ajax="false" />
+					</p:toolbarGroup>
+				</p:toolbar>
+
+				<p:spacer height="5" />
+
+				<p:dataTable emptyMessage="Não há Categorias cadastradas"
+					id="tabCategoria" dynamic="true" paginator="true"
+					value="#{categoriaQuery.result}" rows="10" var="categoria"
+					selectionMode="single" selection="#{categoriaEntity.selecionada}"
+					rowKey="#{categoria.id}">
+
+					<p:column>
+						<f:facet name="header">Variável template</f:facet>
+						<h:outputText value="#{categoria.marcador}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Descrição</f:facet>
+						<h:outputText value="#{categoria.descricao}" />
+					</p:column>
+				</p:dataTable>
+
+			</p:tab>
+			<p:tab title="Templates">
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton type="push" action="#{templateEntity.newEntity}"
+							value="Criar" ajax="false" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton action="#{templateEntity.view}"
+							value="Editar" ajax="false" />
+						<p:commandButton type="push" action="#{templateEntity.remove}"
+							value="Remover" ajax="false" />
+					</p:toolbarGroup>
+				</p:toolbar>
+
+				<p:spacer height="5" />
+
+				<p:dataTable emptyMessage="Não há Templates cadastrados"
+					id="tableTemplates" paginator="true" rows="10"
+					value="${templateQuery.result}" var="template"
+					selectionMode="single" selection="#{templateEntity.selecionada}"
+					rowKey="#{template.id}">
+					<p:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{template.nome}" />
+					</p:column>
+				</p:dataTable>
+			</p:tab>
+			<p:tab title="Conteúdos">
+
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:spacer width="5" />
+						<h:inputText id="inputFiltro" size="60" />
+						<p:spacer width="5" />
+						<p:commandButton type="push" value="Pesquisar" />
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton type="push" action="#{templateEntity.view}"
+							value="Visualizar" ajax="false" />
+						<p:commandButton type="push" action="#{templateEntity.remove}"
+							value="Remover" ajax="false" />
+					</p:toolbarGroup>
+				</p:toolbar>
+				<p:watermark for="inputFiltro"
+					value="Adicione palavras para filtrar os conteúdos" />
+
+				<p:spacer height="5" />
+
+				<p:dataTable emptyMessage="Não há Conteúdos cadastrados">
+					<p:column>
+						<f:facet name="header">Tipo</f:facet>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Conteúdo</f:facet>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Detalhes</f:facet>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Última</f:facet>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Status</f:facet>
+					</p:column>
+				</p:dataTable>
+			</p:tab>
+		</p:tabView>
+
+		<p:dialog header="Informações Site: #{siteSelecionado.nome}"
+			widgetVar="_dialogSite" showEffect="bounce" hideEffect="explode"
+			width="400" modal="true" resizable="false">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Última Atualização:" />
+				<h:outputText value="#{siteSelecionado.alteracao}" />
+				<h:outputLabel value="Versão:" />
+				<h:outputText value="#{siteSelecionado.versao}" />
+			</h:panelGrid>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>

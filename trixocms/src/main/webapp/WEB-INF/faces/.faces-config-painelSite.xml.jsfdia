@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelSite.xhtml" PATH="/painelSite.xhtml"
+  SHAPE="768,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelSite.xhtml:0" NAME="item"
+   PATH="/painelSite.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{siteEntity.view}:#formularioSite.xhtml" NAME="output"
+    PATH="/formularioSite.xhtml" TARGET="rules:#formularioSite.xhtml"
+    TITLE="#{siteEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{categoriaEntity.newEntity}:#formularioCategoria.xhtml"
+    NAME="output1" PATH="/formularioCategoria.xhtml"
+    TARGET="rules:#formularioCategoria.xhtml"
+    TITLE="#{categoriaEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{categoriaEntity.view}:#formularioCategoria.xhtml"
+    NAME="output2" PATH="/formularioCategoria.xhtml"
+    TARGET="rules:#formularioCategoria.xhtml"
+    TITLE="#{categoriaEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{categoriaEntity.remove}:#painelSite.xhtml"
+    NAME="output3" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{categoriaEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{templateEntity.newEntity}:#formularioTemplate.xhtml"
+    NAME="output4" PATH="/formularioTemplate.xhtml"
+    TARGET="rules:#formularioTemplate.xhtml"
+    TITLE="#{templateEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{templateEntity.view}:#formularioTemplate.xhtml"
+    NAME="output5" PATH="/formularioTemplate.xhtml"
+    TARGET="rules:#formularioTemplate.xhtml"
+    TITLE="#{templateEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{templateEntity.remove}:#painelSite.xhtml"
+    NAME="output6" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{templateEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{paginaEntity.newEntity}:#formularioPagina.xhtml"
+    NAME="output7" PATH="/formularioPagina.xhtml"
+    TARGET="rules:#formularioPagina.xhtml"
+    TITLE="#{paginaEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="view:#{paginaEntity.view}:#formularioPagina.xhtml"
+    NAME="output8" PATH="/formularioPagina.xhtml"
+    TARGET="rules:#formularioPagina.xhtml"
+    TITLE="#{paginaEntity.view}:view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="removed:#{paginaEntity.remove}:#painelSite.xhtml" NAME="output9"
+    PATH="/painelSite.xhtml" TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.remove}:removed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="painel:#{paginaEntity.viewConteudo}:#painelPagina.xhtml"
+    NAME="output10" PATH="/painelPagina.xhtml"
+    TARGET="rules:#painelPagina.xhtml"
+    TITLE="#{paginaEntity.viewConteudo}:painel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="atualizacoesSite::#painelPublicacao.xhtml"
+    NAME="output11" PATH="/painelPublicacao.xhtml"
+    TARGET="rules:#painelPublicacao.xhtml" TITLE="atualizacoesSite" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioSite.xhtml"
+  PATH="/formularioSite.xhtml" SHAPE="496,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioCategoria.xhtml"
+  PATH="/formularioCategoria.xhtml" SHAPE="496,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioTemplate.xhtml"
+  PATH="/formularioTemplate.xhtml" SHAPE="496,657,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioPagina.xhtml"
+  PATH="/formularioPagina.xhtml" SHAPE="1040,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#painelPagina.xhtml"
+  PATH="/painelPagina.xhtml" SHAPE="1040,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#painelPublicacao.xhtml"
+  PATH="/painelPublicacao.xhtml" SHAPE="976,17,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,77 @@
+<mockup version="1.0" skin="sketch" measuredW="774" measuredH="521"
+	mockupW="750" mockupH="509">
+	<controls>
+		<control controlID="69" controlTypeID="com.balsamiq.mockups::TabBar"
+			x="163" y="171" w="385" h="350" measuredW="152" measuredH="100"
+			zOrder="0" locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Paginas</text>
+			</controlProperties>
+		</control>
+		<control controlID="71" controlTypeID="com.balsamiq.mockups::Label"
+			x="163" y="47" w="172" h="23" measuredW="95" measuredH="23" zOrder="1"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>RCV%20Concursos</text>
+			</controlProperties>
+		</control>
+		<control controlID="72" controlTypeID="com.balsamiq.mockups::Label"
+			x="165" y="76" w="-1" h="-1" measuredW="61" measuredH="23" zOrder="2"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Versao%3A%201</text>
+			</controlProperties>
+		</control>
+		<control controlID="73" controlTypeID="com.balsamiq.mockups::Label"
+			x="314" y="46" w="-1" h="-1" measuredW="195" measuredH="23" zOrder="3"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Ultima%20Atualizacao%3A%2010/10/2010</text>
+			</controlProperties>
+		</control>
+		<control controlID="74" controlTypeID="com.balsamiq.mockups::Label"
+			x="314" y="75" w="195" h="23" measuredW="188" measuredH="23" zOrder="4"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Ultima%20Publicacao%3A%2010/10/2010</text>
+			</controlProperties>
+		</control>
+		<control controlID="75" controlTypeID="com.balsamiq.mockups::Label"
+			x="539" y="46" w="235" h="23" measuredW="205" measuredH="23" zOrder="5"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Status%3A%20Pendente%20de%20Atualizacao</text>
+			</controlProperties>
+		</control>
+		<control controlID="76" controlTypeID="com.balsamiq.mockups::StickyNote"
+			x="24" y="14" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="6"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Gerenciador%20de%20Site</text>
+			</controlProperties>
+		</control>
+		<control controlID="77" controlTypeID="com.balsamiq.mockups::Label"
+			x="163" y="12" w="-1" h="-1" measuredW="176" measuredH="29" zOrder="7"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<size>18</size>
+				<text>Gerenciador%20de%20Site</text>
+				<underline>true</underline>
+			</controlProperties>
+		</control>
+		<control controlID="78" controlTypeID="com.balsamiq.mockups::ButtonBar"
+			x="159" y="127" w="-1" h="-1" measuredW="321" measuredH="29" zOrder="8"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Publicar%2C%20Criar%20Pagina%2C%20Conteudo%20Rapido</text>
+			</controlProperties>
+		</control>
+		<control controlID="79" controlTypeID="com.balsamiq.mockups::DataGrid"
+			x="185" y="216" w="-1" h="-1" measuredW="340" measuredH="86" zOrder="9"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Nome%2C%20Versao%2C%20Ultima%20Atualizacao%2C%20Status%0AHome%2C%202%2C%2010/10/2010%2C%20Pendente%0AConcursos%2C%201%20%2C%2005/10/2010%2C%20Publicada</text>
+			</controlProperties>
+		</control>
+	</controls>
+</mockup>

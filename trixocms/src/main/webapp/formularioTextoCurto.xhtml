@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="navegacao">
+		<p:menuitem value="#{siteSelecionado.nome}"
+			onclick="_dialogSite.show()" />
+		<p:menuitem value="#{paginaSelecionada.nome}" />
+		<p:menuitem value="#{categoriaEntity.instance.descricao}" />
+	</ui:define>
+
+	<ui:define name="menuEsquerdo">
+		<p:commandButton value="Voltar" ajax="false" immediate="true"
+			action="painelPagina" />
+	</ui:define>
+
+	<ui:define name="menuDireito">
+	</ui:define>
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Conteúdo - Texto Curto"
+			rendered="#{not textoCurtoEntity.managed}" />
+		<h:outputText value="Edição de Conteúdo - Texto Curto"
+			rendered="#{textoCurtoEntity.managed}" />
+	</ui:define>
+
+	<ui:define name="body">
+		<f:metadata>
+			<f:viewParam name="categoriaId" value="#{categoriaEntity.id}"
+				converter="javax.faces.Long" />
+		</f:metadata>
+
+		<p:panel header="Cadastro de Conteúdo - Texto Curto">
+
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Página: " />
+				<h:outputText value="#{paginaSelecionada.nome}"/>
+				<h:outputLabel value="Categoria: " />
+				<h:outputText value="#{categoriaEntity.instance.descricao}" />
+			</h:panelGrid>
+
+			<p:tabView>
+				<p:tab title="Conteúdo">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Descrição: " />
+						<h:inputText
+							value="#{textoCurtoEntity.instance.conteudo.descricao}" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Agendamento">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="A partir de: " />
+						<p:calendar
+							value="#{textoCurtoEntity.instance.agendadoDe}"
+							pattern="dd/MM/yyyy hh:mm" />
+						<h:outputLabel value="Até: " />
+						<p:calendar
+							value="#{textoCurtoEntity.instance.agendadoAte}"
+							pattern="dd/MM/yyyy hh:mm" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+
+			<f:facet name="footer">
+				<p:toolbar>
+					<p:toolbarGroup align="left">
+						<p:commandButton value="Salvar"
+							action="#{textoCurtoEntity.persist}" ajax="false"
+							rendered="#{not textoCurtoEntity.managed}" />
+						<p:commandButton value="Editar"
+							action="#{textoCurtoEntity.update}" ajax="false"
+							rendered="#{textoCurtoEntity.managed}" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</f:facet>
+
+		</p:panel>
+	</ui:define>
+</ui:composition>

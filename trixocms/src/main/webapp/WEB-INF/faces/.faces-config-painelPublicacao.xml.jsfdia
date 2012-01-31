@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelPublicacao.xhtml"
+  PATH="/painelPublicacao.xhtml" SHAPE="1040,657,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelPublicacao.xhtml:0" NAME="item"
+   PATH="/painelPublicacao.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+</PROCESS>

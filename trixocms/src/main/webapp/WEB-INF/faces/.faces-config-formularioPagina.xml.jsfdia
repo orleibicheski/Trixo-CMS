@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelSite.xhtml" PATH="/painelSite.xhtml"
+  SHAPE="768,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioPagina.xhtml"
+  PATH="/formularioPagina.xhtml" SHAPE="1040,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#formularioPagina.xhtml:0" NAME="item"
+   PATH="/formularioPagina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="persisted:#{paginaEntity.persist}:#painelSite.xhtml"
+    NAME="output" PATH="/painelSite.xhtml"
+    TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.persist}:persisted" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="updated:#{paginaEntity.update}:#painelSite.xhtml" NAME="output1"
+    PATH="/painelSite.xhtml" TARGET="rules:#painelSite.xhtml"
+    TITLE="#{paginaEntity.update}:updated" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

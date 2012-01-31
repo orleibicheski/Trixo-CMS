@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="paginaAdministracao.xhtml">
+
+	<ui:define name="title">Atualizações de páginas</ui:define>
+
+	<ui:define name="navegacao">
+	    <p:menuitem value="#{siteSelecionado.nome}" onclick="_dialogSite.show()" />
+	</ui:define>
+	
+	<ui:define name="menuEsquerdo">
+		<p:commandButton value="Voltar" ajax="false" immediate="true" action="painelSite" />
+	</ui:define>
+	
+	<ui:define name="menuDireito">
+	</ui:define>
+
+	<ui:define name="body">
+		<p:panel header="Publicação de páginas">
+		
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:commandButton type="push" action="#{publicarSite.publicar}"
+						value="Publicar" ajax="false" />
+					<p:commandButton type="push" 
+						value="Agendar" ajax="false" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:spacer height="5" />
+
+			<p:dataTable emptyMessage="Não existem Páginas pendentes de atualização"
+				value="#{paginasAtualizadasQuery.result}" var="pagina" 
+				selection="#{publicarSite.paginasSelecionadas}" selectionMode="multiple"
+				rowKey="#{pagina.id}">
+				<p:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{pagina.nome}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Última Atualização</f:facet>
+					<h:outputText value="#{pagina.alteracao}" />
+				</p:column>
+			</p:dataTable>		
+		
+		</p:panel>
+	
+	</ui:define>
+</ui:composition>

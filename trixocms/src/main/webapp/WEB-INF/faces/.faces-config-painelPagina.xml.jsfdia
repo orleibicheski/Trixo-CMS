@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#painelPagina.xhtml"
+  PATH="/painelPagina.xhtml" SHAPE="1040,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#painelPagina.xhtml:0" NAME="item"
+   PATH="/painelPagina.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{textoCurtoEntity.newEntity}:#formularioTextoCurto.xhtml"
+    NAME="output" PATH="/formularioTextoCurto.xhtml"
+    TARGET="rules:#formularioTextoCurto.xhtml"
+    TITLE="#{textoCurtoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="new:#{textoLongoEntity.newEntity}:#formularioTextoLongo.xhtml"
+    NAME="output1" PATH="/formularioTextoLongo.xhtml"
+    TARGET="rules:#formularioTextoLongo.xhtml"
+    TITLE="#{textoLongoEntity.newEntity}:new" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#formularioTextoCurto.xhtml"
+  PATH="/formularioTextoCurto.xhtml" SHAPE="1296,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#formularioTextoLongo.xhtml"
+  PATH="/formularioTextoLongo.xhtml" SHAPE="1296,609,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,33 @@
+<mockup version="1.0" skin="sketch" measuredW="930" measuredH="330"
+	mockupW="895" mockupH="318">
+	<controls>
+		<control controlID="14" controlTypeID="com.balsamiq.mockups::StickyNote"
+			x="35" y="12" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="0"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Tela%20para%20o%20usuario%20administrar%20os%20sites.</text>
+			</controlProperties>
+		</control>
+		<control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid"
+			x="300" y="109" w="616" h="221" measuredW="418" measuredH="86"
+			zOrder="1" locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Nome%2C%20Versao%2C%20Ultima%20Atualizacao%2C%20Ultima%20Publicacao%0ARCV%20Concursos%2C%201%2C%2010/07/2010%2C%2010/07/2010%0ATrixo%2C%202%2C%2010/07/2010%2C%2010/07/2010</text>
+			</controlProperties>
+		</control>
+		<control controlID="16" controlTypeID="com.balsamiq.mockups::ButtonBar"
+			x="300" y="65" w="-1" h="-1" measuredW="169" measuredH="29" zOrder="2"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Criar%20Novo%20Site</text>
+			</controlProperties>
+		</control>
+		<control controlID="18" controlTypeID="com.balsamiq.mockups::ButtonBar"
+			x="745" y="66" w="-1" h="-1" measuredW="185" measuredH="29" zOrder="3"
+			locked="false" isInGroup="-1">
+			<controlProperties>
+				<text>Gerenciar%20Conta%2C%20Sair</text>
+			</controlProperties>
+		</control>
+	</controls>
+</mockup>
